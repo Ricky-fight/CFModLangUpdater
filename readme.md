@@ -25,9 +25,7 @@
 1. 进入项目根目录并安装虚拟环境 `pip install virtualenv && virtualenv venv && activate venv`，可选但强烈推荐，不会污染你的本地pip
    package lists
 2. 安装依赖`pip install -r requirements.txt`
-### 下载资源包
-1. 在[此处](http://downloader1.meitangdehulu.com:22943/)下载脚本目前支持对应版本的汉化资源包
-2. 在项目根目录下建立`resourcepacks`目录并将资源包移动到此目录下，最好每个支持版本都下一个
+
 ### Enjoy It:smile:
 
 ## Todo
