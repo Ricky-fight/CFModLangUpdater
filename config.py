@@ -9,9 +9,9 @@ refDirRoot = Path(r"./cache")
 
 class MaintainVersion(Enum):
     FORGE_118 = "1.18"
-    FABRIC_118 = "1.18fabric"
+    FABRIC_118 = "1.18-fabric"
     FORGE_119 = "1.19"
-    # FABRIC_119 = "1.19fabric"
+    # FABRIC_119 = "1.19-fabric"
 
 
 # curseforge api 相关，不需要动
