@@ -108,12 +108,14 @@ def getFilesToDownload(m: Mod) -> ModFilesDict:
     latestFiles = [file_from_dict(filedata) for filedata in getData(r)]
     print("获取最新文件数据成功，文件数据如下：")
     print("\t文件名")
-    for f in latestFiles:
-        print(f"\t{f.file_name} ")
     # 似乎没有必要，api拿到文件数据本来就是排好序的
-    # sorted_latestFiles = sorted(latestFiles, key=lambda f: f.id, reverse=False)
-    filesToDownload = {}
+    sorted_latestFiles = sorted(latestFiles, key=lambda f: f.id, reverse=False)
     for f in latestFiles:
+        if not f.download_url:
+            sorted_latestFiles.remove(f)
+            print(f"获取{f.file_name}下载链接失败，CurseForge API没有返回文件下载链接")
+    filesToDownload = {}
+    for f in sorted_latestFiles:
         # 1.18 Forge
         if MaintainVersion.FORGE_118 not in filesToDownload and match(f, SupportLoader.FORGE,
                                                                       SupportVersion.V1_18):

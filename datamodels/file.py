@@ -19,13 +19,10 @@ T = TypeVar("T")
 
 
 def from_int(x: Any) -> int:
-    assert isinstance(x, int) and not isinstance(x, bool)
-    return x
-
+    return x or 0
 
 def from_str(x: Any) -> str:
-    assert isinstance(x, str)
-    return x
+    return x or ""
 
 
 def from_datetime(x: Any) -> datetime:
@@ -33,8 +30,7 @@ def from_datetime(x: Any) -> datetime:
 
 
 def from_bool(x: Any) -> bool:
-    assert isinstance(x, bool)
-    return x
+    return x or False
 
 
 def from_list(f: Callable[[Any], T], x: Any) -> List[T]:
