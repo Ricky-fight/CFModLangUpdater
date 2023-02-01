@@ -109,8 +109,9 @@ def getFilesToDownload(m: Mod) -> ModFilesDict:
     print("获取最新文件数据成功，文件数据如下：")
     print("\t文件名")
     # 似乎没有必要，api拿到文件数据本来就是排好序的
-    sorted_latestFiles = sorted(latestFiles, key=lambda f: f.id, reverse=False)
+    sorted_latestFiles = sorted(latestFiles, key=lambda f: f.id, reverse=True)
     for f in latestFiles:
+        print(f"file={f.file_name} id={f.id}")
         if not f.download_url:
             sorted_latestFiles.remove(f)
             print(f"获取{f.file_name}下载链接失败，CurseForge API没有返回文件下载链接")
@@ -138,7 +139,7 @@ def getFilesToDownload(m: Mod) -> ModFilesDict:
     #         if filedata.id == idx.file_id:
     #             filesTodownload[version] = filedata
     # assert len(filesTodownload) == len(latestFileIndexes)
-    print(f"获取即将下载文件数据成功，获取到{[key.value for key in filesToDownload]}版本的文件")
+    print(f"获取下载文件数据成功，获取到{[key.value for key in filesToDownload]}版本的文件")
     return filesToDownload
 
 
